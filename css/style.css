@@ -1,3 +1,6 @@
+html {
+    zoom: 150%;
+}
 html, body {
     height: 98%;
     text-align: center;
@@ -12,7 +15,7 @@ body {
 .calculator-container {
     display: flex;
     flex-direction:  column;
-    justify-content: flex-end;
+    justify-content: flex;
     width: fit-content;
     padding: 2%; 
     background-color: rgb(134, 134, 134);
@@ -26,6 +29,7 @@ body {
     align-self: flex-end;
     margin-bottom: 3%;
     background-color: lightgreen;
+    height: 20%;
 }
 
 
