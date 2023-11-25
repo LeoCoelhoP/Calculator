@@ -108,6 +108,17 @@ function start(isOn) {
                 let undefined;
                 operator = undefined;
                 secondNum = undefined;
+                if (buttonPressed === '+') {
+                    operator = '+'
+
+                } else if (buttonPressed === '-') {
+                    operator = '-'
+
+                } else if (buttonPressed === '÷') {
+                    operator = '÷'
+                } else {
+                    operator = '*';
+                }
 
             } else {
             switch (buttonPressed) {

@@ -74,3 +74,15 @@ a {
     align-self: center;
     margin-top: 5%;
 }
+
+ @media (max-width: 600px) {
+    html {
+        zoom: 150%;
+    }
+ }
+
+ @media (max-width: 300px) {
+    html {
+        zoom: 100%;
+    }
+ }
