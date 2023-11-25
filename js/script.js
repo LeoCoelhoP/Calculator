@@ -194,6 +194,6 @@ powerButton.addEventListener("click", () => {
         });
 
         isOn = false;
-        display.textContent = "_";
+        display.innerHTML = "&nbsp;";
     }
 });
