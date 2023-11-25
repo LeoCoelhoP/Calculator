@@ -33,7 +33,7 @@ function start(isOn) {
     let total = 0;
 
     let display = document.querySelector(".calculator-display");
-    display.textContent = '0'
+    display.textContent = "0"
     let displayValue;
 
     let firstNum;
@@ -47,8 +47,8 @@ function start(isOn) {
             buttonPressed = button.textContent;
 
             if (inFirstNumber) {
-                if (typeof firstNum === 'undefined') {
-                    if (buttonPressed === '.' && isDecimalPressed === false) {
+                if (typeof firstNum === "undefined") {
+                    if (buttonPressed === "." && isDecimalPressed === false) {
                         firstNum = `0${buttonPressed}`;
                     } else {
                         firstNum = buttonPressed; 
@@ -57,7 +57,7 @@ function start(isOn) {
                 }else if (firstNum === "-") {
                     firstNum = `-${buttonPressed}`;
                 } else {
-                    if (buttonPressed === '.' && isDecimalPressed === true){
+                    if (buttonPressed === "." && isDecimalPressed === true){
                     } else {
                         firstNum += buttonPressed;                    
         
@@ -67,15 +67,15 @@ function start(isOn) {
 
                 display.textContent = firstNum;
             } else {
-                if (typeof secondNum === 'undefined') {
-                    if (buttonPressed === '.' && isDecimalPressed === false) {
+                if (typeof secondNum === "undefined") {
+                    if (buttonPressed === "." && isDecimalPressed === false) {
                         secondNum = `0${buttonPressed}`;
                     } else {
                         secondNum = buttonPressed; 
                     }
 
                 } else {
-                    if (buttonPressed === '.' && isDecimalPressed === true){
+                    if (buttonPressed === "." && isDecimalPressed === true){
                     } else {
                         secondNum += buttonPressed;                    
         
@@ -88,7 +88,7 @@ function start(isOn) {
 
 
 
-            if (buttonPressed === '.' && isDecimalPressed === false){
+            if (buttonPressed === "." && isDecimalPressed === false){
                 isDecimalPressed = true
             }
             
@@ -99,7 +99,7 @@ function start(isOn) {
     operatorsButtons.forEach((button) => {
         button.addEventListener(("click"), () => {
             buttonPressed = button.textContent;
-            if (typeof operator !== 'undefined' && typeof secondNum !== 'undefined') {
+            if (typeof operator !== "undefined" && typeof secondNum !== "undefined") {
                 total = operate(Number(firstNum), operator, Number(secondNum));
                 display.textContent = total;
                 inFirstNumber = false;
@@ -108,16 +108,16 @@ function start(isOn) {
                 let undefined;
                 operator = undefined;
                 secondNum = undefined;
-                if (buttonPressed === '+') {
-                    operator = '+'
+                if (buttonPressed === "+") {
+                    operator = "+"
 
-                } else if (buttonPressed === '-') {
-                    operator = '-'
+                } else if (buttonPressed === "-") {
+                    operator = "-"
 
-                } else if (buttonPressed === '÷') {
-                    operator = '÷'
+                } else if (buttonPressed === "÷") {
+                    operator = "÷"
                 } else {
-                    operator = '*';
+                    operator = "*";
                 }
 
             } else {
@@ -132,8 +132,8 @@ function start(isOn) {
                     operator =  "-";
                     inFirstNumber = false;
                     isDecimalPressed = false;
-                    if (typeof firstNum === 'undefined') {
-                        firstNum = '-';
+                    if (typeof firstNum === "undefined") {
+                        firstNum = "-";
                         inFirstNumber = true;
                         display.textContent = firstNum;
                     } else {
@@ -160,40 +160,40 @@ function start(isOn) {
     });
 
 } 
-const calculator = document.querySelector('.calculator-container')
+const calculator = document.querySelector(".calculator-container")
 const display = document.querySelector(".calculator-display");
 const buttons = document.querySelectorAll("button");
-const powerButton = document.querySelector('.power');
+const powerButton = document.querySelector(".power");
 isOn = false;
 
 buttons.forEach((button) => {
     button.disabled = true;
 });
 
-powerButton.addEventListener('click', () => {
+powerButton.addEventListener("click", () => {
     if (isOn === false) {
-        calculator.setAttribute('style', 'box-shadow: 0 0 3px 1px rgb(46, 46, 46), 0 0 3px 1px rgb(46, 46, 46), 0 0 3px 1px rgb(46, 46, 46), 0 0 3px 1px rgb(46, 46, 46)');
-        display.setAttribute('style', 'box-shadow: 0 0 3px 1px rgb(167, 255, 167), 0 0 3px 1px rgb(167, 255, 167), 0 0 3px 1px rgb(167, 255, 167), 0 0 3px 1px rgb(167, 255, 167');
+        calculator.setAttribute("style", "box-shadow: 0 0 3px 1px rgb(46, 46, 46), 0 0 3px 1px rgb(46, 46, 46), 0 0 3px 1px rgb(46, 46, 46), 0 0 3px 1px rgb(46, 46, 46)");
+        display.setAttribute("style", "box-shadow: 0 0 3px 1px rgb(167, 255, 167), 0 0 3px 1px rgb(167, 255, 167), 0 0 3px 1px rgb(167, 255, 167), 0 0 3px 1px rgb(167, 255, 167");
         start();
         buttons.forEach((button) => { 
-            if (button.textContent !== 'ON-OFF') {
+            if (button.textContent !== "ON-OFF") {
                 button.disabled = false;                
             }
-            button.setAttribute('style', 'color: white');
+            button.setAttribute("style", "color: white");
         });
         isOn = true;
         
     } else {
-        calculator.setAttribute('style', 'box-shadow: none');
-        display.setAttribute('style', 'box-shadow: none');
+        calculator.setAttribute("style", "box-shadow: none");
+        display.setAttribute("style", "box-shadow: none");
         buttons.forEach((button) => {
-            if (button.textContent !== 'ON-OFF') {
+            if (button.textContent !== "ON-OFF") {
                 button.disabled = true;                
             }
-            button.setAttribute('style', 'color: gray');
+            button.setAttribute("style", "color: gray");
         });
 
         isOn = false;
-        display.textContent = '_';
+        display.textContent = "_";
     }
 });
